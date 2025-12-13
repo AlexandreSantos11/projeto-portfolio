@@ -23,22 +23,33 @@
   --fundo-card: #ffffff;
 }
 
+.escuro {
+  --fundo-principal: #222222;
+  --texto: #e0e0e0;
+  --texto-inverso: #333333;
+  --destaque: #ff5522;
+  --destaque-inverso: #a73917;
+  --fundo-card: #444444;
+}
+
 body {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   line-height: 1.5em;
   background-color: var(--fundo-principal);
   color: var(--texto);
-  height: 100dvh;
+  transition: blackground-color 0.5s, color 0.5s;
 }
 
 header {
+  display: flex;
+  justify-content: flex-end;
+  align-content: center;
   background-color: var(--destaque);
   color: var(--texto);
   padding: 10px;
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  align-content: center;
+  position: sticky;
+  top: 0;
+  z-index: 999;
 }
 
 nav#menu ul {
@@ -143,6 +154,7 @@ article#video .video-container {
   width: 100%;
   height: 100%;
   border-radius: 8px;
+  z-index: 1;
 }
 
 #skill-container {
@@ -255,7 +267,29 @@ footer a {
   font-weight: bold;
 }
 
+footer a:hover {
+  color: var(--destaque-inverso);
+}
+
 @media screen and (min-width: 768px) {
+  
+  main {
+    grid-template-columns: auto 300px 1fr auto;
+  }
+
+  section#ficha {
+    grid-column: 2 / 3;
+    height: fit-content;
+    position: sticky;
+    top: 65px;
+  }
+
+  section#detalhes {
+    grid-column: 3 / 4;
+  }
+
+
+
   #skill-container {
     grid-template-columns: 1fr 1fr;
   }
